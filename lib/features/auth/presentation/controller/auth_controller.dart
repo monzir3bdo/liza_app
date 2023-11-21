@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:assignment_project/core/widgets/get_snack_bar.dart';
 import 'package:assignment_project/core/widgets/loading_widget.dart';
 import 'package:assignment_project/features/auth/presentation/pages/log_in_page.dart';
@@ -116,19 +114,20 @@ class AuthController extends GetxController {
       await FirebaseAuth.instance.sendPasswordResetEmail(
         email: email.value,
       );
-    } catch (e) {}
+      getSnackBar(message: 'Please Check Your email', seconds: 2);
+      Get.offAll(() => const LoginPage());
+    } catch (e) {
+      getSnackBar(message: e.toString(), color: Colors.red, seconds: 2);
+    }
   }
 
   userProfile() async {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    await users
-        .add({
-          'email': email.value,
-          'username': name.obs,
-        })
-        .then((value) => print('User Created'))
-        .catchError((error) {
-          print('failed to add user:$error');
-        });
+    await users.add({
+      'email': email.value,
+      'username': name.value,
+    }).then((value) {
+      print('add to firestore');
+    }).catchError((error) {});
   }
 }

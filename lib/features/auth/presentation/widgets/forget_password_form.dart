@@ -10,7 +10,7 @@ class ForgetPasswordForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<AuthController>();
+    final controller = AuthController();
     return GetBuilder(
         init: controller,
         builder: (_) {

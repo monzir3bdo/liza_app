@@ -60,10 +60,7 @@ class HomeWidget extends StatelessWidget {
                   onPressed: () {
                     Get.to(() => const LocationPage());
                   },
-                  icon: const Icon(CupertinoIcons
-                      .location_fill) //Image.asset('assets/images/menu_icon.png'),
-                  //iconSize: 30,
-                  ),
+                  icon: const Icon(CupertinoIcons.location_fill)),
               IconButton(
                 onPressed: () {
                   Get.to(() => const BinnancePage());
@@ -102,11 +99,16 @@ class HomeWidget extends StatelessWidget {
           FormFieldWidget(
             controller: _controller,
             onChangedFunction: (searchedItem) {
-              // _searchForProduct(searchedItem);
+              productsController.productSearch(searchedItem);
             },
           ),
-          ProductsGridViewWidget(
-            products: products,
+          GetBuilder(
+            init: productsController,
+            builder: (_) => ProductsGridViewWidget(
+              products: _controller.text.isEmpty
+                  ? products
+                  : productsController.getSearchProductList(),
+            ),
           ),
         ],
       ),

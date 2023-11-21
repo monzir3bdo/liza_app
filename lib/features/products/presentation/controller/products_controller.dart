@@ -16,6 +16,7 @@ class ProductsController extends GetxController with StateMixin {
   final cartProducts = RxList<Product>.empty(growable: true);
   final GetAllProducts getAllProducts;
   var currentIndex = 0.obs;
+  var searchedProductsList = RxList<Product>.empty(growable: true);
 
   ProductsController({required this.getAllProducts});
 
@@ -43,6 +44,11 @@ class ProductsController extends GetxController with StateMixin {
   getFavouriteProducts() {
     favouriteProducts.value =
         products.where((product) => product.isFavourite).toList();
+  }
+
+  List<Product> getSearchProductList() {
+    update();
+    return searchedProductsList;
   }
 
   removeFromFavouriteList(Product product) {
@@ -95,6 +101,12 @@ class ProductsController extends GetxController with StateMixin {
     }
 
     update();
+  }
+
+  productSearch(String product) {
+    searchedProductsList.value = products
+        .where((element) => element.title.toLowerCase().startsWith(product))
+        .toList();
   }
 
   String _mapFailureToStringMessage(Failure failure) {

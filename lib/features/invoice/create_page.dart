@@ -109,7 +109,7 @@ createPage({required List<Product> products, required String totalPrice}) {
                           ),
                         ),
                         pw.Text(
-                          '$totalPrice',
+                          totalPrice,
                           style: pw.TextStyle(
                             fontWeight: pw.FontWeight.bold,
                           ),

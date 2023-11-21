@@ -1,8 +1,5 @@
-import 'package:assignment_project/features/products/presentation/controller/products_controller.dart';
-import 'package:assignment_project/features/products/presentation/widgets/prouduct_quantity_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../../core/font_style_manager.dart';
 import '../../domain/entities/product.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:assignment_project/features/products/presentation/pages/product_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

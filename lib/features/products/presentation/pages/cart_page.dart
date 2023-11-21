@@ -1,9 +1,7 @@
 import 'package:assignment_project/core/widgets/custom_button.dart';
 import 'package:assignment_project/features/products/domain/entities/product.dart';
 import 'package:assignment_project/features/products/presentation/controller/products_controller.dart';
-import 'package:assignment_project/features/products/presentation/pages/order_confirmed_screen.dart';
-import 'package:assignment_project/features/products/presentation/widgets/app_bar_widget.dart';
-import 'package:assignment_project/features/products/presentation/widgets/products_grid_view_widget.dart';
+
 import 'package:assignment_project/features/products/presentation/widgets/prouduct_quantity_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +26,7 @@ class CartPage extends StatelessWidget {
 }
 
 Widget _buildBody() {
-  List<Product> cartList = productsController.cartProducts.value;
+  List<Product> cartList = productsController.cartProducts;
 
   return GetBuilder(
     init: productsController,
@@ -63,7 +61,7 @@ Widget _buildBody() {
                         final pdf = await PdfInvoice(
                                 totalPrice:
                                     productsController.calculateCartPrice(),
-                                products: productsController.cartProducts.value)
+                                products: productsController.cartProducts)
                             .createPdf();
                         PdfInvoice.openFile(pdf);
                       },
@@ -111,7 +109,7 @@ class FavouriteList extends StatelessWidget {
 
 class FavouriteItem extends StatelessWidget {
   final Product product;
-  FavouriteItem({super.key, required this.product});
+  const FavouriteItem({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +127,7 @@ class FavouriteItem extends StatelessWidget {
           );
           productsController.removeFromCart(product);
         },
-        key: Key('product.id'),
+        key: const Key('product.id'),
         child: Container(
           width: 390,
           height: 127,

@@ -2,7 +2,6 @@ import 'package:assignment_project/features/auth/presentation/controller/auth_co
 import 'package:assignment_project/features/auth/presentation/pages/get_start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({super.key});
@@ -13,7 +12,7 @@ class AboutMePage extends StatelessWidget {
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(
+        const Center(
             child: Text(
           'Developed by Monzir ',
           style: TextStyle(
@@ -24,9 +23,9 @@ class AboutMePage extends StatelessWidget {
             onPressed: () {
               var controller = Get.put(AuthController());
               controller.signOut();
-              Get.offAll(GetStart());
+              Get.offAll(const GetStart());
             },
-            child: Text('Log Out')),
+            child: const Text('Log Out')),
       ],
     ));
   }

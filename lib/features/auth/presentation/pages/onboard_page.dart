@@ -61,11 +61,9 @@ class OnBoardingPage extends StatelessWidget {
             ),
             CustomButton(
                 onPressed: () {
-                  // CacheHelper()
-                  //     .saveData(key: 'isOnboardingVisited', value: true);
                   Get.find<CacheHelper>()
                       .saveData(key: 'isOnboardingVisited', value: true);
-                  print("Value Saved Successfully");
+
                   Get.to(() => const GetStart());
                 },
                 buttonText: "Get Started",

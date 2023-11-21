@@ -11,7 +11,6 @@ class LocationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CacheHelper cacheHelper = CacheHelper();
     return SafeArea(
       child: Scaffold(
         body: _buildBody(),
@@ -43,7 +42,6 @@ _buildBody() {
                         key: 'lat', value: pickedData.latLong.latitude);
                     Get.find<CacheHelper>().saveData(
                         key: 'long', value: pickedData.latLong.longitude);
-                    print('Saved your location');
 
                     controller.pickedCity.value = pickedData.addressName;
 

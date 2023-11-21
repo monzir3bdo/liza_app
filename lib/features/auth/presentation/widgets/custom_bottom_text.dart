@@ -5,11 +5,12 @@ import '../../../../core/colors_manager.dart';
 class CustomBottomText extends StatelessWidget {
   final String text;
   final String textButtonName;
-  final String destination;
-  const CustomBottomText(
+
+  void Function()? onPressed;
+  CustomBottomText(
       {required this.text,
       required this.textButtonName,
-      required this.destination,
+      required this.onPressed,
       super.key});
 
   @override
@@ -19,9 +20,7 @@ class CustomBottomText extends StatelessWidget {
       children: [
         Text(text),
         TextButton(
-          onPressed: () {
-            //todo: got to custom destination
-          },
+          onPressed: onPressed,
           style: TextButton.styleFrom(
               padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
           child: Text(

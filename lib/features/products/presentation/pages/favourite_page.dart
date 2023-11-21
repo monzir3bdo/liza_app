@@ -2,12 +2,9 @@ import 'package:assignment_project/core/widgets/custom_button.dart';
 import 'package:assignment_project/features/products/domain/entities/product.dart';
 import 'package:assignment_project/features/products/presentation/controller/products_controller.dart';
 import 'package:assignment_project/features/products/presentation/pages/product_detail_page.dart';
-import 'package:assignment_project/features/products/presentation/widgets/app_bar_widget.dart';
-import 'package:assignment_project/features/products/presentation/widgets/products_grid_view_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 ProductsController productsController = Get.find<ProductsController>();
 
@@ -27,7 +24,7 @@ Widget _buildBody() {
   productsController.getFavouriteProducts();
   var favouriteList = productsController.favouriteProducts;
   return Obx(
-    () => favouriteList.value.isEmpty
+    () => favouriteList.isEmpty
         ? const Center(child: Text("No Favourite Items yet"))
         : Container(
             padding: const EdgeInsets.all(10),
@@ -54,7 +51,7 @@ Widget _buildBody() {
 
 _buildAppBar() {
   return AppBar(
-    leading: Text(''),
+    leading: const Text(''),
     title: const Text(
       'Favourite ',
       style: TextStyle(

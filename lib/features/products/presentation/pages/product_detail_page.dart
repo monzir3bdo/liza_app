@@ -7,8 +7,7 @@ import '../../../../core/colors_manager.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../domain/entities/product.dart';
-import '../widgets/detail_page_divider.dart';
-import '../widgets/product_category_widget.dart';
+
 import '../widgets/product_description_widget.dart';
 import '../widgets/product_name_widget.dart';
 
@@ -76,7 +75,7 @@ class ProductDetailPage extends StatelessWidget {
                 ProudctNameWidget(
                   product: product,
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.35,
                   child: ProductDescriptionWidget(product: product),

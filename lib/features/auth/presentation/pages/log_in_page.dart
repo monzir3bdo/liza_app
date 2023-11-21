@@ -1,4 +1,6 @@
+import 'package:assignment_project/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/font_style_manager.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -47,11 +49,13 @@ class LoginPage extends StatelessWidget {
         SliverToBoxAdapter(
           child: CustomLoginForm(),
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: CustomBottomText(
             text: AppStrings.dontHaveAccount,
             textButtonName: 'Sign Up',
-            destination: 'signup',
+            onPressed: () {
+              Get.to(() => const SignUpPage());
+            },
           ),
         )
       ],

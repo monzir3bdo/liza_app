@@ -1,23 +1,18 @@
-import 'dart:ffi';
-
 import 'package:assignment_project/features/auth/presentation/controller/auth_controller.dart';
-import 'package:assignment_project/features/auth/presentation/pages/sign_up_page.dart';
+import 'package:assignment_project/features/auth/presentation/pages/forget_password_page.dart';
+
 import 'package:assignment_project/features/auth/presentation/widgets/get_start/auth_form_field.dart';
 import 'package:assignment_project/features/auth/presentation/widgets/get_start/remember_me_widget.dart';
-import 'package:assignment_project/features/products/presentation/pages/real_home_page.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 import 'forget_password_widget.dart';
 
 class CustomLoginForm extends StatelessWidget {
   CustomLoginForm({super.key});
-  final controller = Get.find<AuthController>();
+  final controller = AuthController();
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
@@ -55,7 +50,7 @@ class CustomLoginForm extends StatelessWidget {
             ForgetPasswordWidget(
               text: 'ForgetPassword?',
               onPressed: () {
-                //todo: Navigate to forget password screen
+                Get.off(() => const ForgetPasswordPage());
               },
             ),
             const RememberMeWidget(),

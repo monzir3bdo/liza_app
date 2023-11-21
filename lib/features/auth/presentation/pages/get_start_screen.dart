@@ -1,4 +1,3 @@
-import 'package:assignment_project/features/auth/presentation/controller/auth_controller.dart';
 import 'package:assignment_project/features/auth/presentation/pages/log_in_page.dart';
 import 'package:assignment_project/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,6 @@ class GetStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(AuthController());
     return SafeArea(
       child: Scaffold(
         appBar: _buildAppBar(context),

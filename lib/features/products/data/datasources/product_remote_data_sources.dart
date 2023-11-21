@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 const String baseUrl = 'https://fakestoreapi.com';
 
 class ProductRemoteDataSource extends GetConnect {
-  @override
   Future<List<ProductModel>> getAllProducts() async {
     final response = await get('$baseUrl/products');
     if (response.statusCode == 200) {

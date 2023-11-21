@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:assignment_project/features/products/presentation/controller/products_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +20,6 @@ class ProductQuantityWidget extends StatelessWidget {
           GestureDetector(
             onTap: () {
               productsController.decreaseProductQuantity(product);
-              print('decrease an item');
             },
             child: const Icon(Icons.remove),
           ),
@@ -29,7 +30,7 @@ class ProductQuantityWidget extends StatelessWidget {
             height: 45,
             width: 45,
             decoration: BoxDecoration(
-              color: Color(0xffE2E2E2),
+              color: const Color(0xffE2E2E2),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Center(child: Text('${product.quantity}')),
@@ -40,8 +41,6 @@ class ProductQuantityWidget extends StatelessWidget {
           GestureDetector(
             onTap: () {
               productsController.increaseProductQuantity(product);
-
-              print(product.quantity);
             },
             child: const Icon(
               Icons.add,
